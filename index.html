@@ -29,9 +29,9 @@
                     <nav>
                         <ul class="clearfix" > <!-- ungeordnete liste-->
                             <!--<li style="list-style-type: none;"><a style="text-decoration: none;" href="#2">Main</a> </li> listenpunkt-->
-                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#3">Infos</a> </li> <!--listenpunkt mit link zur seite auf die man geführt wird wenn man auf diesen punkt drückt-->
-                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#4">Anmeldung</a> </li> <!--listenpunkt-->
-                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#5">Spielplan</a> </li> <!--listenpunkt-->
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#3">Infos</a> </li> 
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#4">Anmeldung</a> </li> 
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#5">Spielplan</a> </li> 
                         </ul>
                     </nav>
                 </div>
@@ -84,25 +84,25 @@
 
     
     <script>
-    // Set the date we're counting down to
+    // Datum setzen
         var countDownDate = new Date("May 21, 2023 19:00:00").getTime();
 
-        // Update the count down every 1 second
+        // Update jede Sekunde
         var x = setInterval(function() {
 
-            // Get today's date and time
+            // Heute
             var now = new Date().getTime();
 
-            // Find the distance between now and the count down date
+            
             var distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
+            // Zeit berechnen
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="demo"
+            // Anzeigen
             var daytext = " days, ";
             var hourtext = " hours, ";
             var minutetext = " minutes and ";
@@ -121,7 +121,7 @@
             document.getElementById("timer").innerHTML = days + daytext + hours + hourtext
             + minutes + minutetext + seconds + secondtext;
 
-            // If the count down is finished, write some text
+            // Wenn abgelaufen
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("timer").innerHTML = "EXPIRED";
@@ -129,7 +129,7 @@
         }, 1000);
 
 
-        consoleText(['Let\'s get drunk together.', 'Stay hydrated.', 'Shall we play a game?'], 'text',['tomato','rebeccapurple','lightblue']);
+        consoleText(['Let\'s have a drink together.', 'Stay hydrated.', 'Shall we play a game?'], 'text',['tomato','rebeccapurple','lightblue']);
 
         function consoleText(words, id, colors) {
             if (colors === undefined) colors = ['#fff'];
