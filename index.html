@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;600&display=swap');
+        </style>
+    <!--  <video autoplay muted loop id="myVideo">
+        <source src="bploop.mp4" type="video/mp4">
+      </video>-->
+    <div class="wrapper" >
+    
+        <section class="one"> 
+            <video autoplay muted loop id="myVideo">
+                <source src="doggos.mp4" type="video/mp4">
+            </video>
+            <div class="toprow">
+                <div class="logo">
+                    <a href="index.html"> <!-- beim klicken auf folgendes wird man zu index.html geleitet  -->
+                        <img src="logo_bp.png" height="130" alt="Logo"> <!-- Logo als Bild einfügen mit größe height -->
+                    </a>
+                </div>
+                    
+                <div class="navigation">
+                    <nav>
+                        <ul class="clearfix" > <!-- ungeordnete liste-->
+                            <!--<li style="list-style-type: none;"><a style="text-decoration: none;" href="#2">Main</a> </li> listenpunkt-->
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#3">Infos</a> </li> <!--listenpunkt mit link zur seite auf die man geführt wird wenn man auf diesen punkt drückt-->
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#4">Anmeldung</a> </li> <!--listenpunkt-->
+                            <li style="list-style-type: none;"><a style="text-decoration: none;" href="#5">Spielplan</a> </li> <!--listenpunkt-->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="countdown">
+                <h1 style="color: aquamarine;">Tollhaus </h1>
+                <h1>will be in</h1>
+                <p id="timer"></p>
+            </div>    
+            
+        </section> 
+    
+        
+
+        <section class="three" id="3">
+            <div class='info-headline-container'>
+                <span id='text'></span>
+                <div class='console-underscore' id='console'>&#95;
+
+                </div>
+            </div>
+            <p id="infos">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </section>
+
+        <section class="four" id="4">
+            <div class="anmeldung">
+         
+                    <h1>Don't wait.</h1>
+            
+                
+                <form>
+                    <input class="emailborder" type="email" tabindex="1" placeholder="Mail" required><br>
+                    <input type="text" tabindex="2" placeholder="Team name" required><br>
+                    <textarea class="textareaborder" tabindex="3" placeholder="Tell us why you'll win"></textarea><br>
+                    <button class="button" id="sendbutton">
+                        <div id="spin"></div>
+                            <a href="mailto:michael-maier@live.de">Send</a>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="five" id="5">
+            <h1 id="infos">Spielplan</h1>
+            <img src="spielplan_em_2021.jpg" height="600" alt="Logo">
+        </section>
+        
+        
+    </div>
+
+    
+    <script>
+    // Set the date we're counting down to
+        var countDownDate = new Date("May 21, 2023 19:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            var daytext = " days, ";
+            var hourtext = " hours, ";
+            var minutetext = " minutes and ";
+            var secondtext = " seconds.";
+
+            if (days==1) {
+                daytext = " day, ";
+            } else if (hours == 1){
+                hourtext = " hour, "
+            } else if (minutes == 1){
+                hourtext = " minute and "
+            } else if (seconds == 1){
+                secondtext = " second."
+            } 
+
+            document.getElementById("timer").innerHTML = days + daytext + hours + hourtext
+            + minutes + minutetext + seconds + secondtext;
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+
+        consoleText(['Let\'s get drunk together.', 'Stay hydrated.', 'Shall we play a game?'], 'text',['tomato','rebeccapurple','lightblue']);
+
+        function consoleText(words, id, colors) {
+            if (colors === undefined) colors = ['#fff'];
+            var visible = true;
+            var con = document.getElementById('console');
+            var letterCount = 1;
+            var x = 1;
+            var waiting = false;
+            var target = document.getElementById(id)
+            target.setAttribute('style', 'color:' + colors[0])
+
+            window.setInterval(function() {
+
+                if (letterCount === 0 && waiting === false) {
+                    waiting = true;
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    window.setTimeout(function() {
+                        var usedColor = colors.shift();
+                        colors.push(usedColor);
+                        var usedWord = words.shift();
+                        words.push(usedWord);
+                        x = 1;
+                        target.setAttribute('style', 'color:' + colors[0])
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (letterCount === words[0].length + 1 && waiting === false) {
+                    waiting = true;
+                    window.setTimeout(function() {
+                        x = -1;
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (waiting === false) {
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    letterCount += x;
+                }
+            }, 120)
+            window.setInterval(function() {
+                if (visible === true) {
+                    con.className = 'console-underscore hidden'
+                    visible = false;
+
+                } else {
+                    con.className = 'console-underscore'
+
+                    visible = true;
+                }
+            }, 400)
+        }
+
+    
+      
+    </script>
+</body>
+
+
+</html>
